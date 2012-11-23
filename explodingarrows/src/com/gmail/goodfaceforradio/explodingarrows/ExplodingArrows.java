@@ -52,6 +52,9 @@ public class ExplodingArrows extends JavaPlugin implements Listener {
 	    	// Create an explosion less powerful than the creeper explosion
 	    	// which has power 4f.
 		    arrow.getWorld().createExplosion(arrow.getLocation(), 2f);
+		    
+		    // Remove a blaze rod from player inventory.
+		    player.getInventory().removeItem(new ItemStack(Material.BLAZE_ROD, 1));
 	    }	    
 	}	
 }

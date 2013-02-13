@@ -53,18 +53,17 @@ public class ExplodingArrows extends JavaPlugin implements Listener {
         Player player;
 
         // Only interested in arrows.
-        try {
-            arrow = (Arrow) projectile;
-        } catch (ClassCastException e) {
+        if(!(projectile instanceof Arrow)) {
             return;
         }
+        
+        arrow = (Arrow) projectile;
 
         // Only interested in players shooting.
-        try {
-            player = (Player) arrow.getShooter();
-        } catch (ClassCastException e) {
+        if(!(arrow.getShooter() instanceof Player)) {
             return;
         }
+        player = (Player) arrow.getShooter();
 
         // Player needs to have one or more blaze rods in inventory to
         // get exploding arrows.
